@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { PokemonListaComponent } from './pokemon-lista/pokemon-lista.component';
+
+const routes: Routes = [
+  {
+    path: '', component: PokemonListaComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
