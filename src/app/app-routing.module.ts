@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PokemonListaComponent } from './pokemon-lista/pokemon-lista.component';
-
 const routes: Routes = [
   {
-    path: '', component: PokemonListaComponent
+    path: '', pathMatch: 'full', redirectTo: 'pokemon-list'
   },
+  {
+    path: 'pokemon-list',
+    loadChildren: () => import('./pokemon-list/pokemon-list.module').then(m => m.PokemonListModule)
+  }
 ];
 
 @NgModule({
