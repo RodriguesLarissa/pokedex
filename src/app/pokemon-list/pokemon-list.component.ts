@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from '../model/pokemon';
 
 import { DataService } from '../service/data.service';
 
@@ -9,7 +10,7 @@ import { DataService } from '../service/data.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons: any[] = [];
+  pokemons: Pokemon[] = [];
   
   page: number = 1;
   totalPokemons: number;
@@ -23,19 +24,23 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemons(){
+
     this.dataService.getPokemons(10, this.page + 0)
       .subscribe({next: (response: any) => {
         this.totalPokemons = response.count;
 
         response.results.forEach((pokemon: any) => {
           this.dataService.getPokemonDetails(pokemon.name)
-            .subscribe(pokemonResponse => {
-              this.pokemons.push(pokemonResponse);
-              console.log(this.pokemons);
+            .subscribe((pokemonResponse: any) => {
+              this.pokemons.push({
+                name: pokemonResponse.name, 
+                urlImage: pokemonResponse.sprites.other["official-artwork"].front_default
+              });
             })
         })
+
       }}) 
-  
+      
   }
 
 }
