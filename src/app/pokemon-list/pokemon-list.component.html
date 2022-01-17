@@ -6,7 +6,7 @@
     *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }"
   >
   
-    <mat-card class="pokemon-card" [style.background]="pokemon.color">
+    <mat-card class="pokemon-card">
 
       <img mat-card-image [src]='pokemon.urlImage' alt="Pokemon" />
       <h2>{{ pokemon.name[0].toUpperCase() + pokemon.name.substr(1) }}</h2>
