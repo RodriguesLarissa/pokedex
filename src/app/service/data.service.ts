@@ -22,4 +22,8 @@ export class DataService {
     return this.http.get(`${this.API}/${name}`);
   }
 
+  getPokemonSpeciesDetails(id: number){
+    return this.http.get(`${this.API}-species/${id}/`);
+  }
+
 }

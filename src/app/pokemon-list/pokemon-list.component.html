@@ -1,14 +1,21 @@
+<mat-card class="container">
 <div class="pokemon-list">
+  
   <div
     class="item"
     *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }"
   >
+  
+    <mat-card class="pokemon-card" [style.background]="pokemon.color">
 
-    <img [src]='pokemon.urlImage' alt="Pokemon" />
-
-    <h1>{{ pokemon.name[0].toUpperCase() + pokemon.name.substr(1) }}</h1>
-
+      <img mat-card-image [src]='pokemon.urlImage' alt="Pokemon" />
+      <h2>{{ pokemon.name[0].toUpperCase() + pokemon.name.substr(1) }}</h2>
+      
+    </mat-card>
+  
   </div>
+  
 </div>
+</mat-card>
 
 <pagination-controls (pageChange)="page = $event; pokemons = []; getPokemons()"></pagination-controls>

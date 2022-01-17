@@ -1,5 +1,5 @@
+import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

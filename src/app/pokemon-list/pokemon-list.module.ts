@@ -8,7 +8,7 @@ import { PokemonListRoutingModule } from './pokemon-list-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    PokemonListRoutingModule
+    PokemonListRoutingModule,
   ]
 })
 export class PokemonListModule { }

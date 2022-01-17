@@ -1,25 +1,49 @@
+.container {
+    background-color: rgb(48, 48, 48);
+    border-radius: 0 0 20px 20px;
+}
+
 .pokemon-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
     flex-direction: row;
     margin-bottom: 40px;
 }
 
 .pokemon-list .item {
     width: 25%;
-    height: 300px;
-    text-align: center;
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    height: 310px;
+    text-align: -webkit-center;
 }
 
 .pokemon-list .item img {
-    width: 230px;
-    display: block;
-    margin: 0 auto;
+    width: 190px;
+    margin: 10px auto;
+}
+
+.pokemon-card {
+    background-color: rgb(212, 212, 212);
+    width: 280px;
+    height: 280px;
+    color: black;
+    border-radius: 50px;
+    transition: background-color 0.5s;
+}
+
+.pokemon-card:hover {
+    background-color: rgb(150, 150, 150);
+    width: 280px;
+    height: 280px;
+    color: black;
+    border-radius: 50px;
+}
+
+h2 {
+    font-size: 25px;
 }
 
 pagination-controls {
     text-align: center;
-    margin-bottom: 40px;
+    margin: 40px;
+    color: white;
 }
