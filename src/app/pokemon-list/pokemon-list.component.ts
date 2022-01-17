@@ -34,21 +34,23 @@ export class PokemonListComponent implements OnInit {
       }});   
   }
 
-  getPokemonColor(id: number){
+  getPokemonColor(id: number, name: string, url: string){
+    
     this.dataService.getPokemonSpeciesDetails(id)
       .subscribe((response: any) => {
-        return response.color.name;
+        this.pokemons.push({
+          id: id,
+          name: name, 
+          urlImage: url,
+          color: response.color.name
+        });
       })
   }
 
   getPokemonDetails(pokemon: any){
     this.dataService.getPokemonDetails(pokemon.name)
-        .subscribe((pokemonResponse: any) => {
-          this.pokemons.push({
-            id: pokemonResponse.id,
-            name: pokemonResponse.name, 
-            urlImage: pokemonResponse.sprites.other["official-artwork"].front_default,
-          });
+      .subscribe((pokemonResponse: any) => {
+        this.getPokemonColor(pokemonResponse.id, pokemonResponse.name, pokemonResponse.sprites.other["official-artwork"].front_default)
       })
   }
 }
