@@ -25,7 +25,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemons(){
-    this.dataService.getPokemons(12, this.page + 0)
+    this.dataService.getPokemons(12, (this.page - 1) == 0 ? (this.page - 1) : (this.page - 1) + (12*(this.page-1)))
       .subscribe({next: (response: any) => {
         this.totalPokemons = response.count;
         response.results.forEach((pokemon: any) => {
@@ -35,7 +35,6 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemonColor(id: number, name: string, url: string){
-    
     this.dataService.getPokemonSpeciesDetails(id)
       .subscribe((response: any) => {
         this.pokemons.push({
@@ -44,6 +43,7 @@ export class PokemonListComponent implements OnInit {
           urlImage: url,
           color: response.color.name
         });
+        this.pokemons.sort((a, b) => (a.id < b.id) ? -1 : 1);
       })
   }
 

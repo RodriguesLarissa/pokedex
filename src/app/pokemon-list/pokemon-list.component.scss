@@ -17,20 +17,12 @@
 }
 
 .pokemon-card {
-  background-color: rgb(212, 212, 212);
+  background-color: var(--primary-color);
   width: 280px;
   height: 280px;
-  color: black;
+  color: var(--secundary-color);
   border-radius: 50px;
-  transition: background-color 0.5s;
-}
-
-.pokemon-card:hover {
-  background-color: rgb(150, 150, 150);
-  width: 280px;
-  height: 280px;
-  color: black;
-  border-radius: 50px;
+  transition: background-color 1s;
 }
 
 h2 {
