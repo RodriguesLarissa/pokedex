@@ -2,16 +2,18 @@
   display: flex;
   flex-flow: row wrap;
   flex-direction: row;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
-.pokemon-list .item {
+.pokemon-list .itens {
   width: 25%;
-  height: 310px;
+  height: 350px;
+  justify-content: center;
+  vertical-align: middle;
   text-align: -webkit-center;
 }
 
-.pokemon-list .item img {
+.pokemon-list .itens img {
   width: 190px;
   margin: 10px auto;
 }
@@ -19,10 +21,19 @@
 .pokemon-card {
   background-color: var(--primary-color);
   width: 280px;
-  height: 280px;
+  height: 320px;
   color: var(--secundary-color);
   border-radius: 50px;
   transition: background-color 1s;
+}
+
+.type {
+  justify-content: center;
+  display: inline-flex;
+  margin: 0 5px 0 5px;
+  border-radius: 100px;
+  width: 80px;
+  font-weight: bold;
 }
 
 h2 {
@@ -31,6 +42,6 @@ h2 {
 
 pagination-controls {
   text-align: center;
-  margin: 40px;
+  margin: 30px;
   color: white;
 }
