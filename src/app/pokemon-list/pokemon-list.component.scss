@@ -1,3 +1,32 @@
+$colors: (
+  "fire": #ff6e4b,
+  "grass": hsl(124, 82%, 26%),
+  "electric": #ffe356,
+  "water": #2982ac,
+  "ground": #685039,
+  "rock": #a9a9a9,
+  "fairy": #ea6aff,
+  "poison": #a641ff,
+  "bug": #2f7d43,
+  "dragon": #748dbb,
+  "psychic": #c2c749,
+  "flying": #7c7c7c,
+  "fighting": #424242,
+  "normal": #00063c,
+);
+
+@each $name, $color in $colors {
+  .#{$name} {
+    background-color: $color;
+    justify-content: center;
+    display: inline-flex;
+    margin: 0 5px;
+    border-radius: 100px;
+    width: 80px;
+    font-weight: bold;
+  }
+}
+
 .pokemon-list {
   display: flex;
   flex-flow: row wrap;
@@ -25,15 +54,6 @@
   color: var(--secundary-color);
   border-radius: 50px;
   transition: background-color 1s;
-}
-
-.type {
-  justify-content: center;
-  display: inline-flex;
-  margin: 0 5px 0 5px;
-  border-radius: 100px;
-  width: 80px;
-  font-weight: bold;
 }
 
 h2 {
