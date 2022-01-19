@@ -1,18 +1,22 @@
 $colors: (
   "fire": #ff6e4b,
   "grass": hsl(124, 82%, 26%),
-  "electric": #ffe356,
-  "water": #2982ac,
+  "electric": #b19d3a,
+  "water": #16a7eb,
   "ground": #685039,
-  "rock": #a9a9a9,
-  "fairy": #ea6aff,
+  "rock": #8a5555,
+  "fairy": #c63adb,
   "poison": #a641ff,
   "bug": #2f7d43,
   "dragon": #748dbb,
-  "psychic": #c2c749,
-  "flying": #7c7c7c,
-  "fighting": #424242,
-  "normal": #00063c,
+  "psychic": #488d54,
+  "flying": #ad0429,
+  "fighting": #571313,
+  "normal": #3c448b,
+  "steel": #7a7a7a,
+  "ghost": #5a3a79,
+  "ice": #005374,
+  "dark": #000,
 );
 
 @each $name, $color in $colors {
@@ -22,7 +26,7 @@ $colors: (
     display: inline-flex;
     margin: 0 5px;
     border-radius: 100px;
-    width: 80px;
+    width: 4.1vmax;
     font-weight: bold;
   }
 }
@@ -36,24 +40,33 @@ $colors: (
 
 .pokemon-list .itens {
   width: 25%;
-  height: 350px;
+  height: 20vmax;
   justify-content: center;
   vertical-align: middle;
   text-align: -webkit-center;
 }
 
-.pokemon-list .itens img {
-  width: 190px;
+.pokemon-card img {
+  width: 12.5vmax;
   margin: 10px auto;
+  transition: all 1s;
 }
 
 .pokemon-card {
   background-color: var(--primary-color);
-  width: 280px;
-  height: 320px;
+  width: 14vmax;
+  height: 19vmax;
   color: var(--secundary-color);
-  border-radius: 50px;
-  transition: background-color 1s;
+  border-radius: 20px;
+  transition: all 1s;
+}
+
+.pokemon-card:hover img {
+  transform: scale(1.15);
+}
+
+.pokemon-card:hover {
+  border-radius: 40px;
 }
 
 h2 {

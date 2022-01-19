@@ -13,6 +13,7 @@ export class PokemonListComponent implements OnInit {
   color: string;
   page: number = 1;
   totalPokemons: number;
+  searchBox = "";
 
   constructor(private dataService: DataService) {}
 
