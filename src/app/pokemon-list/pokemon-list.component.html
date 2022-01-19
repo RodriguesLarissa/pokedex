@@ -1,11 +1,8 @@
-<input type="text" ng-model="searchBox" />
-
 <div class="pokemon-list">
   <div
     class="itens"
     *ngFor="
       let pokemon of pokemons
-        | filter: searchBox
         | paginate
           : { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }
     "

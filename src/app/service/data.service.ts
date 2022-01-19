@@ -1,27 +1,24 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment.prod";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class DataService {
+  private readonly API = environment.API;
 
-  private readonly API = 'https://pokeapi.co/api/v2/pokemon';
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
-
-  getPokemons(limit: number, offset: number){
-    return this.http.get(`${this.API}?limit=${limit}&offset=${offset}`)
+  getPokemons(limit: number, offset: number) {
+    return this.http.get(`${this.API}?limit=${limit}&offset=${offset}`);
   }
 
-  getPokemonDetails(name: string){
+  getPokemonDetails(name: string) {
     return this.http.get(`${this.API}/${name}`);
   }
 
-  getPokemonSpeciesDetails(id: number){
+  getPokemonSpeciesDetails(id: number) {
     return this.http.get(`${this.API}-species/${id}/`);
   }
-
 }

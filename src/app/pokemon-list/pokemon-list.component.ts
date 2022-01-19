@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Pokemon } from "../model/pokemon";
 
 import { DataService } from "../service/data.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-pokemon-list",
@@ -14,6 +15,8 @@ export class PokemonListComponent implements OnInit {
   page: number = 1;
   totalPokemons: number;
   searchBox = "";
+
+  pokemons$: Observable<Pokemon[]>;
 
   constructor(private dataService: DataService) {}
 
