@@ -15,7 +15,6 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   color: string;
   page: number = 1;
   totalPokemons: number;
-  searchBox = "";
 
   pokemon: Subscription;
   pokemonType: Subscription;

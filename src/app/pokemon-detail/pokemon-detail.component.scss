@@ -1,3 +1,44 @@
-p {
-  color: azure;
+h2 {
+  color: rgb(255, 255, 255);
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  padding-top: 100px;
+}
+
+.curveBackground {
+  filter: grayscale(60%);
+  position: relative;
+  height: 70px;
+  width: 100%;
+  background: #e0efe3;
+}
+
+.curveBackground::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 340px;
+  height: 80px;
+  background-color: white;
+  right: -5px;
+  top: 40px;
+}
+
+.curveBackground::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 300px;
+  height: 70px;
+  background-color: #e0efe3;
+  left: 0;
+  top: 27px;
 }
