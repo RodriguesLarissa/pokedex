@@ -12,9 +12,10 @@ import { PokemonListComponent } from "./pokemon-list/pokemon-list.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { FilterPipe } from "./pipes/filter.pipe";
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, FilterPipe],
+  declarations: [AppComponent, PokemonListComponent, FilterPipe, PokemonDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -31,6 +31,10 @@ $colors: (
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 .pokemon-list {
   display: flex;
   flex-flow: row wrap;

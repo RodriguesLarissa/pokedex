@@ -1,22 +1,24 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Pokemon } from "../model/pokemon";
 
 import { DataService } from "../service/data.service";
-import { Observable } from "rxjs";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-pokemon-list",
   templateUrl: "./pokemon-list.component.html",
   styleUrls: ["./pokemon-list.component.scss"],
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent implements OnInit, OnDestroy {
   pokemons: Pokemon[] = [];
   color: string;
   page: number = 1;
   totalPokemons: number;
   searchBox = "";
 
-  pokemons$: Observable<Pokemon[]>;
+  pokemon: Subscription;
+  pokemonColor: Subscription;
+  pokemonDetails: Subscription;
 
   constructor(private dataService: DataService) {}
 
@@ -24,8 +26,14 @@ export class PokemonListComponent implements OnInit {
     this.getPokemons();
   }
 
+  ngOnDestroy() {
+    this.pokemon.unsubscribe();
+    this.pokemonColor.unsubscribe();
+    this.pokemonDetails.unsubscribe();
+  }
+
   getPokemons() {
-    this.dataService
+    this.pokemon = this.dataService
       .getPokemons(
         12,
         this.page - 1 == 0
@@ -43,21 +51,23 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemonColor(id: number, name: string, url: string, types: string[]) {
-    this.dataService.getPokemonSpeciesDetails(id).subscribe((response: any) => {
-      this.pokemons.push({
-        id: id,
-        name: name,
-        urlImage: url,
-        types: types,
-        color: response.color.name,
+    this.pokemonColor = this.dataService
+      .getPokemonSpeciesDetails(id)
+      .subscribe((response: any) => {
+        this.pokemons.push({
+          id: id,
+          name: name,
+          urlImage: url,
+          types: types,
+          color: response.color.name,
+        });
+        this.pokemons.sort((a, b) => (a.id < b.id ? -1 : 1));
       });
-      this.pokemons.sort((a, b) => (a.id < b.id ? -1 : 1));
-    });
   }
 
   getPokemonDetails(pokemon: any) {
     let types: string[] = [];
-    this.dataService
+    this.pokemonDetails = this.dataService
       .getPokemonDetails(pokemon.name)
       .subscribe((pokemonResponse: any) => {
         pokemonResponse.types.forEach((el: any) => {

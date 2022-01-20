@@ -7,13 +7,15 @@
           : { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }
     "
   >
-    <mat-card class="pokemon-card">
-      <img mat-card-image [src]="pokemon.urlImage" alt="Pokemon" />
-      <h2>{{ pokemon.name[0].toUpperCase() + pokemon.name.substr(1) }}</h2>
-      <div *ngFor="let type of pokemon.types" [ngClass]="type">
-        {{ type }}
-      </div>
-    </mat-card>
+    <a [routerLink]="['/pokemon-detail', pokemon.id]">
+      <mat-card class="pokemon-card">
+        <img mat-card-image [src]="pokemon.urlImage" alt="Pokemon" />
+        <h2>{{ pokemon.name[0].toUpperCase() + pokemon.name.substr(1) }}</h2>
+        <div *ngFor="let type of pokemon.types" [ngClass]="type">
+          {{ type }}
+        </div>
+      </mat-card>
+    </a>
   </div>
 </div>
 
