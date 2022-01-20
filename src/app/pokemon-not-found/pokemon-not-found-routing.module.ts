@@ -1,11 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { PokemonDetailComponent } from "./pokemon-detail.component";
 import { PokemonNotFoundComponent } from "../pokemon-not-found/pokemon-not-found.component";
 
 const routes: Routes = [
-  { path: "", component: PokemonDetailComponent },
+  { path: "", component: PokemonNotFoundComponent },
   {
     path: "pokemon-not-found",
     component: PokemonNotFoundComponent,
@@ -16,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PokemonDetailRoutingModule {}
+export class PokemonNotFoundRoutingModule {}

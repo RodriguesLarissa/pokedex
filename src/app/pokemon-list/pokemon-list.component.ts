@@ -11,14 +11,14 @@ import { Subscription } from "rxjs";
 })
 export class PokemonListComponent implements OnInit, OnDestroy {
   pokemons: Pokemon[] = [];
+  types: string[] = [];
   color: string;
   page: number = 1;
   totalPokemons: number;
   searchBox = "";
 
   pokemon: Subscription;
-  pokemonColor: Subscription;
-  pokemonDetails: Subscription;
+  pokemonType: Subscription;
 
   constructor(private dataService: DataService) {}
 
@@ -28,8 +28,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.pokemon.unsubscribe();
-    this.pokemonColor.unsubscribe();
-    this.pokemonDetails.unsubscribe();
+    this.pokemonType.unsubscribe();
   }
 
   getPokemons() {
@@ -44,41 +43,29 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         next: (response: any) => {
           this.totalPokemons = response.count;
           response.results.forEach((pokemon: any) => {
-            this.getPokemonDetails(pokemon);
+            this.getPokemonType(pokemon);
           });
         },
       });
   }
 
-  getPokemonColor(id: number, name: string, url: string, types: string[]) {
-    this.pokemonColor = this.dataService
-      .getPokemonSpeciesDetails(id)
-      .subscribe((response: any) => {
-        this.pokemons.push({
-          id: id,
-          name: name,
-          urlImage: url,
-          types: types,
-          color: response.color.name,
-        });
-        this.pokemons.sort((a, b) => (a.id < b.id ? -1 : 1));
-      });
-  }
-
-  getPokemonDetails(pokemon: any) {
-    let types: string[] = [];
-    this.pokemonDetails = this.dataService
+  getPokemonType(pokemon: any) {
+    this.pokemonType = this.dataService
       .getPokemonDetails(pokemon.name)
       .subscribe((pokemonResponse: any) => {
+        this.types = [];
         pokemonResponse.types.forEach((el: any) => {
-          types.push(el.type.name);
+          this.types.push(el.type.name);
         });
-        this.getPokemonColor(
-          pokemonResponse.id,
-          pokemonResponse.name,
-          pokemonResponse.sprites.other["official-artwork"].front_default,
-          types
-        );
+        this.pokemons.push({
+          id: pokemonResponse.id,
+          name: pokemonResponse.name,
+          urlImage:
+            pokemonResponse.sprites.other["official-artwork"].front_default,
+          types: this.types,
+        });
+        this.pokemons.sort((a, b) => (a.id < b.id ? -1 : 1));
+        console.log(this.pokemons);
       });
   }
 }

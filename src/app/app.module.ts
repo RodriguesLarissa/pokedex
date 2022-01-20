@@ -12,10 +12,17 @@ import { PokemonListComponent } from "./pokemon-list/pokemon-list.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { FilterPipe } from "./pipes/filter.pipe";
-import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import { PokemonDetailComponent } from "./pokemon-detail/pokemon-detail.component";
+import { PokemonNotFoundComponent } from './pokemon-not-found/pokemon-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, FilterPipe, PokemonDetailComponent],
+  declarations: [
+    AppComponent,
+    PokemonListComponent,
+    FilterPipe,
+    PokemonDetailComponent,
+    PokemonNotFoundComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +34,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     MatCardModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [PokemonListComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

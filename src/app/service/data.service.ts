@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment.prod";
+import { Pokemon } from "../model/pokemon";
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +21,9 @@ export class DataService {
 
   getPokemonSpeciesDetails(id: number) {
     return this.http.get(`${this.API}-species/${id}/`);
+  }
+
+  getPokemon(id: number) {
+    return this.http.get(`${this.API}/${id}`);
   }
 }
