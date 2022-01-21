@@ -12,7 +12,7 @@ import { DataService } from "../service/data.service";
 })
 export class PokemonDetailComponent implements OnInit, OnDestroy {
   id: number;
-  color: string;
+  color: string = "gray";
 
   pokemonColor: Subscription;
   pokemonSub: Subscription;

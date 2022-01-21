@@ -1,44 +1,22 @@
 h2 {
   color: rgb(255, 255, 255);
+  font-weight: bold;
+  align-self: center;
+  font-size: 5em;
+  margin: 2vmax;
 }
 
-section {
-  position: relative;
+.background {
+  filter: saturate(40%);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 400px;
-  padding-top: 100px;
+  place-content: center;
+  height: 100%;
+  width: 35%;
 }
 
-.curveBackground {
-  filter: grayscale(60%);
-  position: relative;
-  height: 70px;
-  width: 100%;
-  background: #e0efe3;
-}
-
-.curveBackground::before {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 340px;
-  height: 80px;
-  background-color: white;
-  right: -5px;
-  top: 40px;
-}
-
-.curveBackground::after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 300px;
-  height: 70px;
-  background-color: #e0efe3;
-  left: 0;
-  top: 27px;
+.background img {
+  width: 30vmax;
+  justify-content: center;
+  align-self: center;
 }

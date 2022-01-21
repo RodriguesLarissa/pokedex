@@ -64,7 +64,6 @@ export class PokemonListComponent implements OnInit, OnDestroy {
           types: this.types,
         });
         this.pokemons.sort((a, b) => (a.id < b.id ? -1 : 1));
-        console.log(this.pokemons);
       });
   }
 }
