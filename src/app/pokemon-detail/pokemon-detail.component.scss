@@ -4,7 +4,7 @@ h2 {
   color: rgb(255, 255, 255);
   font-weight: bold;
   align-self: center;
-  font-size: 5vmax;
+  font-size: 4vmax;
   margin: 2vmax;
   text-transform: capitalize;
 }
@@ -15,8 +15,8 @@ h2 {
   flex-direction: row;
 }
 
-@each $name, $color in $colors {
-  .#{$name} {
+@each $nameType, $color in $colorsTypes {
+  .#{$nameType} {
     background-color: $color;
     text-align: center;
     margin: 0 0.5vmax;
@@ -52,4 +52,47 @@ h2 {
 }
 
 .stats {
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2.5vmax;
+  color: white;
+  font-weight: bold;
+  width: 50vmax;
+}
+
+.progress-name {
+  width: 8vmax;
+  text-align-last: left;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.progress-bar {
+  width: -webkit-fill-available;
+  padding: 6px;
+  border-radius: 30px;
+  background: rgba(121, 121, 121, 0.25);
+  box-shadow: inset 0 1px 2px rgba(151, 151, 151, 0.25),
+    0 1px rgba(202, 202, 202, 0.08);
+}
+
+@each $nameStat, $color in $colorsStats {
+  .#{$nameStat} {
+    height: 18px;
+    border-radius: 30px;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.05)
+    );
+    background-color: $color;
+  }
 }

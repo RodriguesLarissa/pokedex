@@ -1,6 +1,6 @@
 @import "../model/colors.scss";
 
-@each $name, $color in $colors {
+@each $name, $color in $colorsTypes {
   .#{$name} {
     background-color: $color;
     justify-content: center;

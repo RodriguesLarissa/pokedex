@@ -1,4 +1,4 @@
-$colors: (
+$colorsTypes: (
   "fire": #ff6e4b,
   "grass": hsl(124, 31%, 64%),
   "electric": #b19d3a,
@@ -6,15 +6,24 @@ $colors: (
   "ground": #685039,
   "rock": #8a5555,
   "fairy": #c63adb,
-  "poison": #653094,
+  "poison": #b86ef8,
   "bug": #2f7d43,
   "dragon": #748dbb,
   "psychic": #488d54,
-  "flying": #ad0429,
+  "flying": #da5773,
   "fighting": #571313,
   "normal": #3c448b,
   "steel": #7a7a7a,
   "ghost": #5a3a79,
   "ice": #005374,
   "dark": #000,
+);
+
+$colorsStats: (
+  "hp": rgb(184, 0, 0),
+  "atk": rgb(201, 164, 0),
+  "def": rgb(0, 137, 190),
+  "sp_atk": rgb(216, 97, 0),
+  "sp_defense": rgb(170, 0, 147),
+  "spd": rgb(0, 158, 53),
 );

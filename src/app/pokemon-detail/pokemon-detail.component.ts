@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 
 import { PokemonDetail } from "../model/pokemon";
@@ -16,24 +16,26 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   types: string[] = [];
   abilities: string[] = [];
 
-    pokemon: PokemonDetail = {
-      id: 0,
-      name: "",
-      urlImage: "",
-      types: [],
-      color: "",
-      body: {
-        weight: 0,
-        height: 0
-      },
-      stats: {
-        life: 0,
-        attack: 0, 
-        defense: 0,
-        speed: 0,
-      },
-      abilities: []
-    };
+  pokemon: PokemonDetail = {
+    id: 0,
+    name: "",
+    urlImage: "",
+    types: [],
+    color: "",
+    body: {
+      weight: 0,
+      height: 0
+    },
+    stats: {
+      hp: 0,
+      atk: 0, 
+      def: 0,
+      'special atk': 0,
+      'special def': 0,
+      spd: 0,
+    },
+    abilities: []
+  };
 
   pokemonColor: Subscription;
   pokemonSub: Subscription;
@@ -41,7 +43,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private dataService: DataService
   ) {}
 
@@ -84,14 +85,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             height: response.height
           },
           stats: {
-            life: response.stats[0].base_stat,
-            attack: response.stats[1].base_stat, 
-            defense: response.stats[2].base_stat,
-            speed: response.stats[5].base_stat,
+            hp: response.stats[0].base_stat,
+            atk: response.stats[1].base_stat, 
+            def: response.stats[2].base_stat,
+            'special atk': response.stats[3].base_stat,
+            'special def': response.stats[4].base_stat,
+            spd: response.stats[5].base_stat,
           },
           abilities: this.abilities
         };
-        
         console.log(this.pokemon)
       });
   }

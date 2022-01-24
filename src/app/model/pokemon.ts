@@ -12,10 +12,12 @@ export interface PokemonDetail extends Pokemon {
     height: number;
   }
   stats: {
-    life: number;
-    attack: number;
-    defense: number;
-    speed: number;
+    hp: number;
+    atk: number;
+    def: number;
+    'special atk': number;
+    'special def': number;
+    spd: number;
   },
   abilities: string[]
 }

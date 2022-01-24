@@ -11,5 +11,15 @@
 
   <div class="stats">
     <h2>Base Stats</h2>
+    <div class="info" *ngFor="let stat of pokemon.stats | keyvalue">
+      <div class="progress-name">
+        {{ stat.key }}
+      </div>
+      <div class="progress-bar">
+        <div [class]="stat.key" [ngStyle]="{'width': (stat.value*100)/300 + '%'}">
+          {{ stat.value + "/300"}}
+        </div>                       
+      </div>
+    </div>
   </div>
 </div>
