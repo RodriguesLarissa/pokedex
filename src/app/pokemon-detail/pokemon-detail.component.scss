@@ -1,9 +1,39 @@
+@import "../model/colors.scss";
+
 h2 {
   color: rgb(255, 255, 255);
   font-weight: bold;
   align-self: center;
-  font-size: 5em;
+  font-size: 5vmax;
   margin: 2vmax;
+  text-transform: capitalize;
+}
+
+.pokemon {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+@each $name, $color in $colors {
+  .#{$name} {
+    background-color: $color;
+    text-align: center;
+    margin: 0 0.5vmax;
+    border-radius: 100px;
+    width: 11vmax;
+    padding: 0.8vmax;
+    font-weight: bold;
+    font-size: 1.8vmax;
+    color: #000;
+  }
+}
+
+.types {
+  display: flex;
+  flex-direction: row;
+  place-self: center;
+  margin-top: 2vmax;
 }
 
 .background {
@@ -19,4 +49,7 @@ h2 {
   width: 30vmax;
   justify-content: center;
   align-self: center;
+}
+
+.stats {
 }

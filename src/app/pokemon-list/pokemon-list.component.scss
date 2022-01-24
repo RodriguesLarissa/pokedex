@@ -1,30 +1,11 @@
-$colors: (
-  "fire": #ff6e4b,
-  "grass": hsl(124, 82%, 26%),
-  "electric": #b19d3a,
-  "water": #16a7eb,
-  "ground": #685039,
-  "rock": #8a5555,
-  "fairy": #c63adb,
-  "poison": #a641ff,
-  "bug": #2f7d43,
-  "dragon": #748dbb,
-  "psychic": #488d54,
-  "flying": #ad0429,
-  "fighting": #571313,
-  "normal": #3c448b,
-  "steel": #7a7a7a,
-  "ghost": #5a3a79,
-  "ice": #005374,
-  "dark": #000,
-);
+@import "../model/colors.scss";
 
 @each $name, $color in $colors {
   .#{$name} {
     background-color: $color;
     justify-content: center;
     display: inline-flex;
-    margin: 0 5px;
+    margin: 0 0.4vmin;
     border-radius: 100px;
     width: 4.1vmax;
     font-weight: bold;
@@ -39,7 +20,7 @@ a {
   display: flex;
   flex-flow: row wrap;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: 1vmax;
 }
 
 .pokemon-list .itens {
@@ -52,7 +33,7 @@ a {
 
 .pokemon-card img {
   width: 12.5vmax;
-  margin: 10px auto;
+  margin: 0.5vmax auto;
   transition: all 1s;
 }
 
@@ -74,11 +55,12 @@ a {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 1.5vmax;
+  text-transform: capitalize;
 }
 
 pagination-controls {
   text-align: center;
-  margin: 30px;
+  margin: 10vmax;
   color: white;
 }
