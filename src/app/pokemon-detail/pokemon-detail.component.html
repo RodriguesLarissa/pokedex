@@ -1,4 +1,4 @@
 <div class="background" [style.background-color]="pokemon.color">
   <img [src]="pokemon.urlImage" alt="Pokemon" />
-  <h2>{{ pokemon.name[0].toUpperCase() + pokemon.name.substr(1) }}</h2>
+  <h2>{{ pokemon.name[0]?.toUpperCase() + pokemon.name.substr(1) }}</h2>
 </div>
