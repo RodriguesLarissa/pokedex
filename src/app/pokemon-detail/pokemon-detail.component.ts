@@ -15,6 +15,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   color: string = "";
   types: string[] = [];
   abilities: string[] = [];
+  moves: string[] = [];
+  description: string = "";
 
   pokemon: PokemonDetail = {
     id: 0,
@@ -30,11 +32,13 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       hp: 0,
       atk: 0, 
       def: 0,
-      'special atk': 0,
-      'special def': 0,
+      'sp atk': 0,
+      'sp def': 0,
       spd: 0,
     },
-    abilities: []
+    abilities: [],
+    moves: [],
+    description: ""
   };
 
   pokemonColor: Subscription;
@@ -62,6 +66,15 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  getPokemonColor() {
+    this.pokemonColor = this.dataService
+      .getPokemonSpeciesDetails(this.id)
+      .subscribe((response: any) => {
+        this.color = response.color.name;
+        this.description = response.flavor_text_entries[9].flavor_text
+      });
+  }
+
   getPokemon() {
     this.getId();
     this.getPokemonColor();
@@ -73,6 +86,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         });
         response.abilities.forEach((el: any) => {
           this.abilities.push(el.ability.name);
+        });
+        response.moves.forEach((el: any) => {
+          this.moves.push(el.move.name);
         });
         this.pokemon = {
           id: this.id,
@@ -88,21 +104,16 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
             hp: response.stats[0].base_stat,
             atk: response.stats[1].base_stat, 
             def: response.stats[2].base_stat,
-            'special atk': response.stats[3].base_stat,
-            'special def': response.stats[4].base_stat,
+            'sp atk': response.stats[3].base_stat,
+            'sp def': response.stats[4].base_stat,
             spd: response.stats[5].base_stat,
           },
-          abilities: this.abilities
+          abilities: this.abilities,
+          moves: this.moves,
+          description: this.description
         };
         console.log(this.pokemon)
       });
   }
 
-  getPokemonColor() {
-    this.pokemonColor = this.dataService
-      .getPokemonSpeciesDetails(this.id)
-      .subscribe((response: any) => {
-        this.color = response.color.name;
-      });
-  }
 }
