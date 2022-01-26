@@ -44,7 +44,6 @@ export class PokemonListComponent implements OnInit, OnDestroy {
           response.results.forEach((pokemon: any) => {
             this.getPokemonType(pokemon);
           });
-          console.log(this.totalPokemons)
         },
       });
   }

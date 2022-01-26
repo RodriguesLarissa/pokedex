@@ -21,6 +21,7 @@ a {
   flex-flow: row wrap;
   flex-direction: row;
   margin-bottom: 1vmax;
+  height: max-content;
 }
 
 .pokemon-list .itens {
@@ -28,19 +29,21 @@ a {
   height: 20vmax;
   justify-content: center;
   vertical-align: middle;
+  margin: 1vmin 0;
+  height: max-content;
   text-align: -webkit-center;
 }
 
 .pokemon-card img {
   width: 12.5vmax;
   margin: 0.5vmax auto;
-  transition: all 1s;
+  transition: all 0.3s;
 }
 
 .pokemon-card {
   background-color: var(--primary-color);
   width: 14vmax;
-  height: 19vmax;
+  height: max-content;
   color: var(--secundary-color);
   border-radius: 20px;
   transition: all 1s;

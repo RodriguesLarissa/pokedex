@@ -10,16 +10,15 @@ export interface PokemonDetail extends Pokemon {
   body: {
     weight: number;
     height: number;
-  }
+  };
   stats: {
     hp: number;
     atk: number;
     def: number;
-    'sp atk': number;
-    'sp def': number;
+    "sp atk": number;
+    "sp def": number;
     spd: number;
-  },
-  abilities: string[],
-  moves: string[],
-  description: string
+  };
+  abilities: string[];
+  description: string;
 }

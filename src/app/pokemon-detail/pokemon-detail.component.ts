@@ -26,19 +26,18 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
     color: "",
     body: {
       weight: 0,
-      height: 0
+      height: 0,
     },
     stats: {
       hp: 0,
-      atk: 0, 
+      atk: 0,
       def: 0,
-      'sp atk': 0,
-      'sp def': 0,
+      "sp atk": 0,
+      "sp def": 0,
       spd: 0,
     },
     abilities: [],
-    moves: [],
-    description: ""
+    description: "",
   };
 
   pokemonColor: Subscription;
@@ -72,7 +71,9 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       .getPokemonSpeciesDetails(this.id)
       .subscribe((response: any) => {
         this.color = response.color.name;
-        this.description = response.flavor_text_entries[9].flavor_text
+        console.log(this.color);
+        this.description = response.flavor_text_entries[9].flavor_text;
+        console.log(this.description);
       });
   }
 
@@ -88,9 +89,6 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         response.abilities.forEach((el: any) => {
           this.abilities.push(el.ability.name);
         });
-        response.moves.forEach((el: any) => {
-          this.moves.push(el.move.name);
-        });
         this.pokemon = {
           id: this.id,
           name: response.forms[0].name,
@@ -99,26 +97,24 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
           color: this.color,
           body: {
             weight: response.weight,
-            height: response.height
+            height: response.height,
           },
           stats: {
             hp: response.stats[0].base_stat,
-            atk: response.stats[1].base_stat, 
+            atk: response.stats[1].base_stat,
             def: response.stats[2].base_stat,
-            'sp atk': response.stats[3].base_stat,
-            'sp def': response.stats[4].base_stat,
+            "sp atk": response.stats[3].base_stat,
+            "sp def": response.stats[4].base_stat,
             spd: response.stats[5].base_stat,
           },
           abilities: this.abilities,
-          moves: this.moves,
-          description: this.description
+          description: this.description,
         };
-        console.log(this.pokemon)
+        console.log(this.pokemon);
       });
   }
 
-  pokemonListPage(){
-    this.router.navigate(['/pokemon-list']);
+  pokemonListPage() {
+    this.router.navigate(["/pokemon-list"]);
   }
-
 }
