@@ -1,7 +1,8 @@
 <div class="pokemon">
   <div class="background" [style.background-color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color">
+      <i class="fas fa-arrow-left" (click)="pokemonListPage()"></i>
       <img [src]="pokemon.urlImage" alt="Pokemon" />
-      <h2>{{ pokemon.name }}</h2>
+      <h2 [style.color]="pokemon.color == 'white'? 'lightslategrey' : 'white'">{{ pokemon.name }}</h2>
       <div class="types">
         <div *ngFor="let type of pokemon.types" [ngClass]="type">
           {{ type }}

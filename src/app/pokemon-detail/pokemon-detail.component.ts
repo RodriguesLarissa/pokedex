@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
 import { PokemonDetail } from "../model/pokemon";
@@ -47,7 +47,8 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -114,6 +115,10 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
         };
         console.log(this.pokemon)
       });
+  }
+
+  pokemonListPage(){
+    this.router.navigate(['/pokemon-list']);
   }
 
 }
