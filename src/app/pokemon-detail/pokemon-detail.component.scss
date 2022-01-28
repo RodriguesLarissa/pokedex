@@ -41,7 +41,7 @@ h2 {
   flex-direction: column;
   place-content: center;
   height: 100%;
-  width: 40%;
+  width: 50%;
   border-radius: 0px 300px 300px 0px;
   padding-right: 4em;
 }
@@ -133,18 +133,13 @@ h2 {
   display: flex;
   flex-direction: column;
   height: 6em;
-  text-transform: capitalize;
   justify-content: space-evenly;
+}
+
+.abilities {
+  text-transform: capitalize;
 }
 
 .title {
   color: rgba(212, 212, 212, 0.3);
-}
-
-.description {
-  color: white;
-  font-size: 2.5vmin;
-  width: 36vmax;
-  margin: 1em 0;
-  line-height: 1.5;
 }

@@ -1,8 +1,8 @@
 <div class="pokemon">
-  <div class="background" [style.background-color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color">
+  <div class="background" [style.background-color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color == 'white'? 'lightslategrey' : pokemon.color">
       <i class="fas fa-arrow-left" (click)="pokemonListPage()"></i>
       <img [src]="pokemon.urlImage" alt="Pokemon" />
-      <h2 [style.color]="pokemon.color == 'white'? 'lightslategrey' : 'white'">{{ pokemon.name }}</h2>
+      <h2>{{ pokemon.name }}</h2>
       <div class="types">
         <div *ngFor="let type of pokemon.types" [ngClass]="type">
           {{ type }}
@@ -15,7 +15,7 @@
     <div class="about">
       <div class="weight">
         <div class="value">
-          <i class="fas fa-weight"></i> {{ pokemon.body.weight + ' kg' }}
+          <i class="fas fa-weight"></i> {{ pokemon.body.weight/10 + ' kg' }}
         </div>
         <div class="title"> 
           Weight
@@ -23,7 +23,7 @@
       </div>
       <div class="height">
         <div class="value">
-          <i class="fas fa-ruler-vertical"></i> {{ pokemon.body.height + ' m' }}
+          <i class="fas fa-ruler-vertical"></i> {{ pokemon.body.height/10 + ' m' }}
         </div>
         <div class="title"> 
           Height
@@ -39,10 +39,6 @@
           Abilities
         </div>
       </div>
-    </div>
-    
-    <div class="description">
-      {{ pokemon.description }}
     </div>
 
     <h2 [style.color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color">Base Stats</h2>
