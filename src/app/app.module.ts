@@ -11,16 +11,10 @@ import { FormsModule } from "@angular/forms";
 import { PokemonListComponent } from "./pokemon-list/pokemon-list.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { FilterPipe } from "./pipes/filter.pipe";
 import { PokemonDetailComponent } from "./pokemon-detail/pokemon-detail.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PokemonListComponent,
-    FilterPipe,
-    PokemonDetailComponent,
-  ],
+  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

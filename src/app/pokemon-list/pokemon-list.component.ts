@@ -25,28 +25,27 @@ export class PokemonListComponent implements OnInit {
     this.dataService
       .getPokemons(
         12,
-        this.page - 1 == 0
-          ? this.page - 1
-          : this.page - 1 + 12 * (this.page - 1)
+        this.page - 1 == 0 ? this.page - 1 : 12 * (this.page - 1)
       )
       .subscribe({
         next: (response: any) => {
           this.totalPokemons = response.count;
-          response.results.forEach((pokemon: any) => {
-            this.getPokemonType(pokemon);
+          response.results.map((pokemon: any) => {
+            this.getPokemonDetails(pokemon);
           });
         },
       });
   }
 
-  getPokemonType(pokemon: any) {
+  getPokemonDetails(pokemon: any) {
     this.dataService
       .getPokemonDetails(pokemon.name)
       .subscribe((pokemonResponse: any) => {
         this.types = [];
-        pokemonResponse.types.forEach((el: any) => {
-          this.types.push(el.type.name);
-        });
+        pokemonResponse.types.map((type: any) =>
+          this.types.push(type.type.name)
+        );
+
         this.pokemons.push({
           id: pokemonResponse.id,
           name: pokemonResponse.name,
