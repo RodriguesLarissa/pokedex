@@ -1,5 +1,5 @@
 export interface Pokemon {
-  id: number;
+  id: any;
   name: string;
   urlImage: string;
   types: string[];
@@ -20,5 +20,4 @@ export interface PokemonDetail extends Pokemon {
     spd: number;
   };
   abilities: string[];
-  description: string;
 }

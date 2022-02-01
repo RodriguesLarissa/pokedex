@@ -13,8 +13,7 @@ export class PokemonDetailComponent implements OnInit {
   id: number;
   types: string[] = [];
   abilities: string[] = [];
-  moves: string[] = [];
-  description: string = "";
+  color: string = "";
 
   pokemon: PokemonDetail = {
     id: 0,
@@ -35,7 +34,6 @@ export class PokemonDetailComponent implements OnInit {
       spd: 0,
     },
     abilities: [],
-    description: "",
   };
 
   constructor(
@@ -61,18 +59,17 @@ export class PokemonDetailComponent implements OnInit {
       .toPromise();
 
     this.dataService.getPokemon(this.id).subscribe((response: any) => {
-      response.types.forEach((el: any) => {
-        this.types.push(el.type.name);
-      });
-      response.abilities.forEach((el: any) => {
-        this.abilities.push(el.ability.name);
-      });
+      response.types.map((type: any) => this.types.push(type.type.name));
+      response.abilities.map((ability: any) =>
+        this.abilities.push(ability.ability.name)
+      );
+
       this.pokemon = {
         id: this.id,
         name: response.forms[0].name,
         urlImage: response.sprites.other["official-artwork"].front_default,
         types: this.types,
-        color: colorPokemon.name,
+        color: colorPokemon,
         body: {
           weight: response.weight,
           height: response.height,
@@ -86,9 +83,7 @@ export class PokemonDetailComponent implements OnInit {
           spd: response.stats[5].base_stat,
         },
         abilities: this.abilities,
-        description: this.description,
       };
-      console.log(this.pokemon);
     });
   }
 

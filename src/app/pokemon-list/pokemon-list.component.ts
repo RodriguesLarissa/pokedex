@@ -1,23 +1,19 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Pokemon } from "../model/pokemon";
 
 import { DataService } from "../service/data.service";
-import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-pokemon-list",
   templateUrl: "./pokemon-list.component.html",
   styleUrls: ["./pokemon-list.component.scss"],
 })
-export class PokemonListComponent implements OnInit, OnDestroy {
+export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = [];
   types: string[] = [];
   color: string;
   page: number = 1;
   totalPokemons: number;
-
-  pokemon: Subscription;
-  pokemonType: Subscription;
 
   constructor(private dataService: DataService) {}
 
@@ -25,13 +21,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     this.getPokemons();
   }
 
-  ngOnDestroy() {
-    this.pokemon.unsubscribe();
-    this.pokemonType.unsubscribe();
-  }
-
   getPokemons() {
-    this.pokemon = this.dataService
+    this.dataService
       .getPokemons(
         12,
         this.page - 1 == 0
@@ -49,7 +40,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
   }
 
   getPokemonType(pokemon: any) {
-    this.pokemonType = this.dataService
+    this.dataService
       .getPokemonDetails(pokemon.name)
       .subscribe((pokemonResponse: any) => {
         this.types = [];

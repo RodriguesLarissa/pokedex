@@ -13,7 +13,6 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { PokemonDetailComponent } from "./pokemon-detail/pokemon-detail.component";
-import { PokemonNotFoundComponent } from './pokemon-not-found/pokemon-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { PokemonNotFoundComponent } from './pokemon-not-found/pokemon-not-found.
     PokemonListComponent,
     FilterPipe,
     PokemonDetailComponent,
-    PokemonNotFoundComponent,
   ],
   imports: [
     BrowserModule,

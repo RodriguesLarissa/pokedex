@@ -22,7 +22,7 @@ export class DataService {
   getPokemonColor(id: number) {
     return this.http
       .get<any>(`${this.API}-species/${id}/`)
-      .pipe(map((response) => response.color));
+      .pipe(map((response) => response.color.name));
   }
 
   getPokemon(id: number) {
