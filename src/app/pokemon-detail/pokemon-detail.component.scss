@@ -71,6 +71,8 @@ h2 {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   width: 36vmax;
 }
 
@@ -88,6 +90,7 @@ h2 {
   text-align-last: left;
   text-transform: uppercase;
   align-self: center;
+  font-size: 2vmin;
 }
 
 .progress-bar {
@@ -144,5 +147,54 @@ h2 {
 }
 
 .title {
-  color: rgba(212, 212, 212, 0.3);
+  color: rgba(226, 226, 226, 0.3);
+}
+
+@media only screen and (max-device-width: 900px) {
+  .background {
+    width: 100%;
+    height: 43%;
+    border-radius: 0px 0px 66px 66px;
+    padding-right: 0em;
+  }
+
+  .pokemon {
+    flex-direction: column;
+  }
+
+  h2 {
+    margin: 0vmax;
+  }
+
+  @each $nameType, $color in $colorsTypes {
+    .#{$nameType} {
+      padding: 0.5vmax;
+    }
+  }
+
+  .info {
+    height: 57%;
+  }
+
+  .content {
+    height: 100%;
+    justify-content: center;
+  }
+
+  .about {
+    font-size: 4.5vmin;
+    margin-bottom: 1.5vmin;
+  }
+
+  .progress-name {
+    font-size: 3vmin;
+  }
+
+  .progress-bar {
+    color: transparent;
+  }
+
+  .fa-arrow-left {
+    display: none;
+  }
 }
