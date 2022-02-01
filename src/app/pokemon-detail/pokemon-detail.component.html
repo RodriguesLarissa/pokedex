@@ -1,55 +1,75 @@
 <div class="pokemon">
-  <div class="background" [style.background-color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color == 'white'? 'lightslategrey' : pokemon.color">
-      <i class="fas fa-arrow-left" (click)="pokemonListPage()"></i>
-      <img [src]="pokemon.urlImage" alt="Pokemon" />
-      <h2>{{ pokemon.name }}</h2>
-      <div class="types">
-        <div *ngFor="let type of pokemon.types" [ngClass]="type">
-          {{ type }}
-        </div>
+  <div
+    class="background"
+    [style.background-color]="
+      pokemon.color == 'blue'
+        ? 'DeepSkyBlue'
+        : pokemon.color == 'white'
+        ? 'lightslategrey'
+        : pokemon.color
+    "
+  >
+    <i class="fas fa-arrow-left" (click)="pokemonListPage()"></i>
+    <img [src]="pokemon.urlImage" alt="Pokemon" />
+    <h2>{{ pokemon.name }}</h2>
+    <div class="types">
+      <div *ngFor="let type of pokemon.types" [ngClass]="type">
+        {{ type }}
       </div>
+    </div>
   </div>
 
   <div class="info">
-    <h2 [style.color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color">About</h2>
-    <div class="about">
-      <div class="weight">
-        <div class="value">
-          <i class="fas fa-weight"></i> {{ pokemon.body.weight/10 + ' kg' }}
+    <div class="content">
+      <h2
+        [style.color]="pokemon.color == 'blue' ? 'DeepSkyBlue' : pokemon.color"
+      >
+        About
+      </h2>
+      <div class="about">
+        <div class="weight">
+          <div class="value">
+            <i class="fas fa-weight"></i> {{ pokemon.body.weight / 10 + " kg" }}
+          </div>
+          <div class="title">Weight</div>
         </div>
-        <div class="title"> 
-          Weight
+        <div class="height">
+          <div class="value">
+            <i class="fas fa-ruler-vertical"></i>
+            {{ pokemon.body.height / 10 + " m" }}
+          </div>
+          <div class="title">Height</div>
+        </div>
+        <div class="abilities">
+          <div class="value">
+            <div class="ability" *ngFor="let ability of pokemon.abilities">
+              {{ ability }}
+            </div>
+          </div>
+          <div class="title">Abilities</div>
         </div>
       </div>
-      <div class="height">
-        <div class="value">
-          <i class="fas fa-ruler-vertical"></i> {{ pokemon.body.height/10 + ' m' }}
+      <h2
+        [style.color]="pokemon.color == 'blue' ? 'DeepSkyBlue' : pokemon.color"
+      >
+        Base Stats
+      </h2>
+      <div class="stats" *ngFor="let stat of pokemon.stats | keyvalue">
+        <div class="progress-name">
+          {{ stat.key }}
         </div>
-        <div class="title"> 
-          Height
-        </div>
-      </div>
-      <div class="abilities">
-        <div class="value">
-          <div class="ability" *ngFor="let ability of pokemon.abilities">
-            {{ ability }}
+        <div class="progress-bar">
+          <div
+            [class]="stat.key"
+            [ngStyle]="{
+              width: (stat.value * 100) / 255 + '%',
+              'background-color':
+                pokemon.color == 'blue' ? 'DeepSkyBlue' : pokemon.color
+            }"
+          >
+            {{ stat.value + "/255" }}
           </div>
         </div>
-        <div class="title"> 
-          Abilities
-        </div>
-      </div>
-    </div>
-
-    <h2 [style.color]="pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color">Base Stats</h2>
-    <div class="stats" *ngFor="let stat of pokemon.stats | keyvalue">
-      <div class="progress-name">
-        {{ stat.key }}
-      </div>
-      <div class="progress-bar">
-        <div [class]="stat.key" [ngStyle]="{'width': (stat.value*100)/255 + '%', 'background-color': pokemon.color == 'blue'? 'DeepSkyBlue' : pokemon.color}">
-          {{ stat.value + "/255"}}
-        </div>                       
       </div>
     </div>
   </div>

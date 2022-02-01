@@ -41,8 +41,8 @@ h2 {
   flex-direction: column;
   place-content: center;
   height: 100%;
-  width: 50%;
-  border-radius: 0px 300px 300px 0px;
+  width: 43%;
+  border-radius: 0px 320px 320px 0px;
   padding-right: 4em;
 }
 
@@ -61,12 +61,17 @@ h2 {
 }
 
 .info {
-  width: -webkit-fill-available;
+  width: max-content;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   align-self: center;
+  width: 57%;
+}
+
+.content {
+  width: 36vmax;
 }
 
 .stats {
@@ -76,7 +81,6 @@ h2 {
   margin-top: 1.5vmax;
   color: white;
   font-weight: bold;
-  width: 36vmax;
 }
 
 .progress-name {
@@ -114,7 +118,6 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 36vmax;
   align-items: center;
 }
 
