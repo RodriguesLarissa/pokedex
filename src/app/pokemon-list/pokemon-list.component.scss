@@ -5,9 +5,11 @@
     background-color: $color;
     justify-content: center;
     display: inline-flex;
-    margin: 0 0.4vmin;
+    margin: 0.4vmin;
     border-radius: 100px;
     width: 4.1vmax;
+    min-width: fit-content;
+    padding: 0 1.5vmin;
     font-weight: bold;
   }
 }
@@ -22,14 +24,12 @@ a {
   flex-direction: row;
   margin-bottom: 1vmax;
   height: max-content;
+  justify-content: space-around;
 }
 
 .pokemon-list .itens {
-  width: 25%;
-  height: 20vmax;
-  justify-content: center;
-  vertical-align: middle;
-  margin: 1vmin 0;
+  width: 22%;
+  margin: 1vmin;
   height: max-content;
   text-align: -webkit-center;
 }
@@ -49,12 +49,11 @@ a {
   transition: all 1s;
 }
 
-.pokemon-card:hover img {
-  transform: scale(1.15);
-}
-
 .pokemon-card:hover {
   border-radius: 40px;
+  img {
+    transform: scale(1.15);
+  }
 }
 
 h2 {
@@ -66,4 +65,29 @@ pagination-controls {
   text-align: center;
   margin: 10vmax;
   color: white;
+}
+
+@media only screen and (max-device-width: 900px) {
+  .pokemon-list .itens {
+    width: 100%;
+  }
+
+  .pokemon-card {
+    width: auto;
+  }
+
+  @each $name, $color in $colorsTypes {
+    .#{$name} {
+      margin: 1vmin;
+      width: 10vmax;
+    }
+  }
+
+  h2 {
+    font-size: 3vmax;
+  }
+
+  .pokemon-card img {
+    width: 25vmax;
+  }
 }
